@@ -8,19 +8,41 @@
 </head>
 <body>
     <!-- FocusTube(Name) with a dummy link -->
-   <header> '
+   <header> 
         <a href="#" class="title"><span> FocusTube </span></a>
    </header>
    <!-- YouTube Video Embed -->
    <div class="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/CZ1CATNbXg0?controls=1" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
-    </div>
-    <details id="summary">
-        <summary> WALL-E (2008) Trailer #1 </summary>
+    <iframe id="youtubeVideo" width="560" height="315" src="https://www.youtube.com/embed/CZ1CATNbXg0?controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+   </div>
+
+    <!--The summary for the video-->
+    <details>
+        <summary> WALL-E (2008) Trailer #1 &#129716;  </summary>
         <p> WALL-E, short for Waste Allocation Load Lifter Earth-class, is the last robot left on Earth. He spends his days tidying up the planet, one piece of garbage at a time. But during 700 years, WALL-E has developed a personality, and he's more than a little lonely. Then he spots EVE (Elissa Knight), a sleek and shapely probe sent back to Earth on a scanning mission. Smitten WALL-E embarks on his greatest adventure yet when he follows EVE across the galaxy. </p>
     </details>
+
+    <!-- Rounded Switch -->
+    <!-- Enable Text when checkbox is checked w/ help of w3school-->
+    <h2>Auto-Play</h2>
+    <label class="switch">
+        <input type="checkbox" id="autoPlayToggle">
+        <span class="slider round"></span>
+    </label>
+
+<h2>Different Genres</h2>
+<p>Hover on the button to open the menu</p>
+    <div class="dropdown">
+       <button class="dropbth">Genres</button>
+       <div class="video-links">
+       <a href="https://www.youtube.com/embed/3GRXCLYibBg?controls=1">Music</a>
+       <a href="#">Gaming</a> 
+       </div>
+    </div>
+    
+
+
+
+    <script src="home.js"</script>
 </body>
 </html>
