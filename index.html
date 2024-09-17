@@ -1,48 +1,55 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="home.css" rel="stylesheet">
     <title>FocusTube</title>
+    <link href="home.css" rel="stylesheet">
 </head>
 <body>
-    <!-- FocusTube(Name) with a dummy link -->
+    <!-- FocusTube Header -->
    <header> 
-        <a href="#" class="title"><span> FocusTube </span></a>
+        <a href="#" class="title"><span>FocusTube</span></a>
    </header>
+   
+   <!-- Autoplay Toggle Under the Header -->
+   <!-- W3School resources were used-->
+   <div class="controls">
+        <h2>Auto-Play</h2>
+        <label class="switch">
+            <input type="checkbox" id="autoPlayToggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
    <!-- YouTube Video Embed -->
+    <!-- W3School resources were used-->
    <div class="video-container">
-    <iframe id="youtubeVideo" width="560" height="315" src="https://www.youtube.com/embed/CZ1CATNbXg0?controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe id="youtubeVideo" width="560" height="315" src="https://www.youtube.com/embed/CZ1CATNbXg0?controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
    </div>
 
     <!--The summary for the video-->
-    <details>
-        <summary> WALL-E (2008) Trailer #1 &#129716;  </summary>
-        <p> WALL-E, short for Waste Allocation Load Lifter Earth-class, is the last robot left on Earth. He spends his days tidying up the planet, one piece of garbage at a time. But during 700 years, WALL-E has developed a personality, and he's more than a little lonely. Then he spots EVE (Elissa Knight), a sleek and shapely probe sent back to Earth on a scanning mission. Smitten WALL-E embarks on his greatest adventure yet when he follows EVE across the galaxy. </p>
+    <details id="videoSummaryDetails">
+        <summary id="videoSummary">WALL-E (2008) Trailer #1 &#129716;</summary>
+        <p id="videoDescription">WALL-E, short for Waste Allocation Load Lifter Earth-class, is the last robot left on Earth. He spends his days tidying up the planet...</p>
     </details>
 
-    <!-- Rounded Switch -->
-    <!-- Enable Text when checkbox is checked w/ help of w3school-->
-    <h2>Auto-Play</h2>
-    <label class="switch">
-        <input type="checkbox" id="autoPlayToggle">
-        <span class="slider round"></span>
-    </label>
-
-<h2>Different Genres</h2>
-<p>Hover on the button to open the menu</p>
+    <!-- Dropdown for Different Genres -->
+     <!-- Coding Formus and ChatGPT were used-->
+    <h2>Different Genres</h2>
+    <p>Hover on the button to open the menu</p>
     <div class="dropdown">
-       <button class="dropbth">Genres</button>
-       <div class="video-links">
-       <a href="https://www.youtube.com/embed/3GRXCLYibBg?controls=1">Music</a>
-       <a href="#">Gaming</a> 
-       </div>
+        <button class="dropbtn">Genres</button>
+        <div class="dropdown-content">
+            <a href="#" data-video-url="https://www.youtube.com/embed/3GRXCLYibBg?controls=1"
+               data-summary="Ginger Root – SHINBANGUMI [Full Album Visualizer]"
+               data-description="This is the lastest album released by Ginger Root. They will also be performing in Philly in October which I'm looking foward to because I bought ticket to his performace">Music</a>
+            <a href="#" data-video-url="https://www.youtube.com/embed/0O_wtxSIND0?controls=1"
+               data-summary="🍡cozy manga organisation & shelving | ft flexispot 🖥️"
+               data-description="This is a Manga Reorganisation video by lyddiemoon.">Manga</a>
+        </div>
     </div>
     
-
-
-
-    <script src="home.js"</script>
+    <script src="home.js"></script>
 </body>
 </html>
