@@ -1,5 +1,3 @@
-
-
 body {
     background-color: black;
     color: whitesmoke;
@@ -31,11 +29,21 @@ header {
     padding-left: 20px;
 }
 
+/* Grid container to structure the main video and suggestion list */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column by default */
+    grid-template-rows: auto auto; /* Adjust to content size */
+    gap: 20px;
+    padding: 10px 9%;
+    margin-top: 90px; /* Added margin to clear the fixed header */
+}
+
 .video-container {
+    justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
 }
 
 iframe {
@@ -50,6 +58,34 @@ details > summary {
     padding: 4px;
     width: 200px;
     cursor: pointer;
+}
+
+.video-suggestions {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.suggestion-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.suggestion {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.suggestion:hover {
+    background-color: #666;
 }
 
 .switch {
