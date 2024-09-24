@@ -1,8 +1,8 @@
 // ChatGPT was used to created this JavaScript files because we haven't learn it in class yet and wanted expourse to JavaScript
 // Autoplay toggle functionality
 document.getElementById('autoPlayToggle').addEventListener('change', function() {
-  var video = document.getElementById('youtubeVideo');
-  var currentSrc = video.src.split('?')[0]; // Keep the current video URL without the query params
+  const video = document.getElementById('youtubeVideo');
+  const currentSrc = video.src.split('?')[0]; // Keep the current video URL without the query params
   if (this.checked) {
       // Turn autoplay ON
       video.src = currentSrc + "?controls=1&autoplay=1";
@@ -18,24 +18,69 @@ document.getElementById('autoPlayToggle').addEventListener('change', function() 
 document.querySelectorAll('.dropdown-content a').forEach(function(link) {
   link.addEventListener('click', function(event) {
       event.preventDefault();  // Prevent default anchor behavior
-      var newVideoUrl = this.getAttribute('data-video-url');
-      var newSummary = this.getAttribute('data-summary');
-      var newDescription = this.getAttribute('data-description');
-      var video = document.getElementById('youtubeVideo');
+
+      const newVideoUrl = this.getAttribute('data-video-url');
+      const newSummary = this.getAttribute('data-summary');
+      const newDescription = this.getAttribute('data-description');
+      // video = document.getElementById('youtubeVideo');
 
       // Get the current autoplay state
-      var autoplayState = document.getElementById('autoPlayToggle').checked;
-      if (autoplayState) {
-          newVideoUrl += "&autoplay=1"; // Add autoplay if enabled
-      }
+      const autoplayState = document.getElementById('autoPlayToggle').checked;
+  
 
       // Update the video player source
-      video.src = newVideoUrl;
-      console.log('Video changed to: ' + newVideoUrl);
+      changeVideo(newVideoUrl,newSummary,newDescription, autoplayState);
 
-      // Update the summary and description
-      document.getElementById('videoSummary').innerText = newSummary;
-      document.getElementById('videoDescription').innerText = newDescription;
-      console.log('Summary updated to: ' + newSummary);
+      // Optionally, update the video suggestions for genres
+      //  updateGenreSuggestions(newVideoUrl);
+
   });
 });
+
+// Event listeners for video suggestions
+document.querySelectorAll('.suggestion').forEach(function(item) {
+  item.addEventListener('click', function() {
+
+      // Retrieve video details from the clicked suggestion
+      const newVideoUrl = this.getAttribute('data-video-url');
+      const newSummary = this.getAttribute('data-summary');
+      const newDescription = this.getAttribute('data-description');
+      
+      // Get the current autoplay state
+      const autoplayState = document.getElementById('autoPlayToggle').checked;
+      
+      // Change the main video with data from the suggestion clicked
+      changeVideo(newVideoUrl, newSummary, newDescription, autoplayState);
+  });
+});
+
+// Select all suggestion elements
+const suggestions = document.querySelectorAll('.suggestion');
+
+// Add a click event listener to each suggestion
+suggestions.forEach(function(suggestion) {
+    suggestion.addEventListener('click', function() {
+        // Retrieve video details from the clicked suggestion
+        const newVideoUrl = this.getAttribute('data-video-url');
+        const newSummary = this.getAttribute('data-summary');
+        const newDescription = this.getAttribute('data-description');
+
+        // Get the current autoplay state
+        const autoplayState = document.getElementById('autoPlayToggle').checked;
+        if (autoplayState) {
+            // Add autoplay to the URL if the toggle is checked
+            videoUrl += "&autoplay=1";
+        }
+
+        // Change the main video
+        changeVideo(newVideoUrl, newSummary, newDescription, autoplayState);
+    });
+});
+
+// Function to change the main video
+function changeVideo(videoUrl, summary, description, autoplayState) {
+    const video = document.getElementById('youtubeVideo');
+    video.src = autoplayState ? videoUrl + "&autoplay=1" : videoUrl;
+    document.getElementById('videoSummary').innerText = summary;
+    document.getElementById('videoDescription').innerText = description;
+}
