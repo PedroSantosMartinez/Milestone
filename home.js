@@ -84,3 +84,27 @@ function changeVideo(videoUrl, summary, description, autoplayState) {
     document.getElementById('videoSummary').innerText = summary;
     document.getElementById('videoDescription').innerText = description;
 }
+
+// Listen for changes on the Dark/Light mode switch
+document.getElementById('DaLiMo').addEventListener('change', function() {
+    // If the switch is checked (Light mode)
+    if (this.checked) {
+        document.body.style.backgroundColor = 'white';  // Change background to white
+        document.body.style.color = 'black';            // Change text color to black
+        document.querySelector('header').style.background = 'deeppink'; // Header to deeppink
+        document.querySelector('.video-suggestions').style.backgroundColor = '#f0f0f0'; // Suggestions background light
+        document.querySelector
+        document.querySelectorAll('.suggestion').forEach(item => item.style.backgroundColor = 'lightpink'); // Suggestion items light
+        document.querySelector('iframe').style.border = 'solid black' // Change the border color to blakc
+        // Change dropdown text color to black
+        document.querySelectorAll('.suggestion').forEach(item => item.style.color = 'black');
+
+    } else {
+        // If the switch is not checked (Dark mode)
+        document.body.style.backgroundColor = 'black';  // Change background to black
+        document.body.style.color = 'whitesmoke';       // Change text color to white
+        document.querySelector('header').style.background = 'rgb(167, 15, 15)'; // Header to original red
+        document.querySelector('.video-suggestions').style.backgroundColor = '#333'; // Suggestions background dark
+        document.querySelectorAll('.suggestion').forEach(item => item.style.backgroundColor = '#444'); // Suggestion items dark
+    }
+});
