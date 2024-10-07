@@ -86,7 +86,7 @@ function changeVideo(videoUrl, summary, description, autoplayState) {
 }
 
 // Listen for changes on the Dark/Light mode switch
-document.getElementById('DaLiMo').addEventListener('change', function() {
+document.getElementById('DaLiMo').addEventListener('change', function(theme) {
     // If the switch is checked (Light mode)
     if (this.checked) {
         document.body.style.backgroundColor = 'white';  // Change background to white
@@ -108,3 +108,4 @@ document.getElementById('DaLiMo').addEventListener('change', function() {
         document.querySelectorAll('.suggestion').forEach(item => item.style.backgroundColor = '#444'); // Suggestion items dark
     }
 });
+
