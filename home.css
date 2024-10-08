@@ -137,6 +137,7 @@ h2 {
     margin: 10px 0;
 }
 
+/* Dropdown Buttom */
 .dropbtn {
     background-color: lightblue;
     color: white;
@@ -146,11 +147,13 @@ h2 {
     cursor: pointer;
 }
 
+/* Dropdown container */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
+/* Dropdown Content (hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -159,6 +162,7 @@ h2 {
     z-index: 1;
 }
 
+/* Links inside the dropdown */
 .dropdown-content a {
     color: white;
     padding: 12px 16px;
@@ -166,61 +170,19 @@ h2 {
     display: block;
 }
 
+/* Change color of links on hover */
 .dropdown-content a:hover {
     background-color: #ccc;
 }
 
+/* Show the dropdown on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
+/* Chnage background color when the dropdown is shown */
 .dropdown:hover .dropbtn {
     background-color: darkblue;
 }
 
-/* Dark/Light Mode Switch */
-.mode-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.mode-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.mode-switch .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-}
-
-.mode-switch .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
 

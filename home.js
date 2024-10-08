@@ -109,3 +109,17 @@ document.getElementById('DaLiMo').addEventListener('change', function(theme) {
     }
 });
 
+// Checks clicks on the theme links
+document.getElementById('light-theme').addEventListener('click', function() {
+    // Light Mode
+    document.body.style.backgroundColor = 'white'; // Change background to white
+    document.body.style.color = 'black'; // Change text color to black
+    document.querySelector('header').style.backgrou 
+
+
+
+
+
+
+
+}
