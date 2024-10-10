@@ -1,17 +1,34 @@
 // ChatGPT was used to created this JavaScript files because we haven't learn it in class yet and wanted expourse to JavaScript
 // Autoplay toggle functionality
+// Get the YouTube iframe element (video)
+const video = document.getElementById('youtubeVideo');
+
+// Function to apply the user's autoplay setting
+function applyAutoplaySetting(isAutoplayOn) {
+    if (isAutoplayOn) {
+        video.src += "&autoplay=1"; // Enable autoplay by adding autoplay=1 to the video URL
+    } else {
+        video.src = video.src.replace("&autoplay=1", ""); // Disable autoplay by removing autoplay=1 from the video URL
+    }
+}
+
+// Save the user's autoplay setting (on or off) to localStorage
+function saveAutoplayPreference(isAutoplayOn) {
+    localStorage.setItem('autoplay', isAutoplayOn); // Save the autoplay setting as 'true' or 'false'
+}
+
+// Apply the saved autoplay preference when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const savedAutoplay = localStorage.getItem('autoplay') === 'true'; // Get the saved autoplay setting from localStorage
+    document.getElementById('autoPlayToggle').checked = savedAutoplay; // Set the toggle switch based on the saved setting
+    applyAutoplaySetting(savedAutoplay); // Apply the saved autoplay setting
+});
+
+// Event listener for the autoplay toggle switch
 document.getElementById('autoPlayToggle').addEventListener('change', function() {
-  const video = document.getElementById('youtubeVideo');
-  const currentSrc = video.src.split('?')[0]; // Keep the current video URL without the query params
-  if (this.checked) {
-      // Turn autoplay ON
-      video.src = currentSrc + "?controls=1&autoplay=1";
-      console.log('Autoplay is ON');
-  } else {
-      // Turn autoplay OFF
-      video.src = currentSrc + "?controls=1";
-      console.log('Autoplay is OFF');
-  }
+    const isAutoplayOn = this.checked; // Get the toggle switch state (true if checked, false if not)
+    applyAutoplaySetting(isAutoplayOn); // Apply the corresponding autoplay setting
+    saveAutoplayPreference(isAutoplayOn); // Save the current autoplay setting to localStorage
 });
 
 // Event listener for genre selection
@@ -83,43 +100,4 @@ function changeVideo(videoUrl, summary, description, autoplayState) {
     video.src = autoplayState ? videoUrl + "&autoplay=1" : videoUrl;
     document.getElementById('videoSummary').innerText = summary;
     document.getElementById('videoDescription').innerText = description;
-}
-
-// Listen for changes on the Dark/Light mode switch
-document.getElementById('DaLiMo').addEventListener('change', function(theme) {
-    // If the switch is checked (Light mode)
-    if (this.checked) {
-        document.body.style.backgroundColor = 'white';  // Change background to white
-        document.body.style.color = 'black';            // Change text color to black
-        document.querySelector('header').style.background = 'deeppink'; // Header to deeppink
-        document.querySelector('.video-suggestions').style.backgroundColor = '#f0f0f0'; // Suggestions background light
-        document.querySelector
-        document.querySelectorAll('.suggestion').forEach(item => item.style.backgroundColor = 'lightpink'); // Suggestion items light
-        document.querySelector('iframe').style.border = 'solid black' // Change the border color to blakc
-        // Change dropdown text color to black
-        document.querySelectorAll('.suggestion').forEach(item => item.style.color = 'black');
-
-    } else {
-        // If the switch is not checked (Dark mode)
-        document.body.style.backgroundColor = 'black';  // Change background to black
-        document.body.style.color = 'whitesmoke';       // Change text color to white
-        document.querySelector('header').style.background = 'rgb(167, 15, 15)'; // Header to original red
-        document.querySelector('.video-suggestions').style.backgroundColor = '#333'; // Suggestions background dark
-        document.querySelectorAll('.suggestion').forEach(item => item.style.backgroundColor = '#444'); // Suggestion items dark
-    }
-});
-
-// Checks clicks on the theme links
-document.getElementById('light-theme').addEventListener('click', function() {
-    // Light Mode
-    document.body.style.backgroundColor = 'white'; // Change background to white
-    document.body.style.color = 'black'; // Change text color to black
-    document.querySelector('header').style.backgrou 
-
-
-
-
-
-
-
 }
