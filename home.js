@@ -31,6 +31,7 @@ document.getElementById('autoPlayToggle').addEventListener('change', function() 
     saveAutoplayPreference(isAutoplayOn); // Save the current autoplay setting to localStorage
 });
 
+
 // Event listener for genre selection
 document.querySelectorAll('.dropdown-content a').forEach(function(link) {
   link.addEventListener('click', function(event) {
